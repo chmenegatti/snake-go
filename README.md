@@ -2,6 +2,8 @@
 
 Este projeto implementa o clássico **Snake Game** usando a linguagem Go e a biblioteca **Ebiten** para jogos 2D. Ao longo deste tutorial, você aprenderá como criar um jogo básico, incluindo movimentação, colisões, pontuação e controle de reinício.
 
+![Snake Game Demo](./assets/demo.gif)
+
 ## Índice
 1. [Pré-requisitos](#pré-requisitos)
 2. [Instalação](#instalação)
