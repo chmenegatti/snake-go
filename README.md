@@ -157,10 +157,3 @@ Neste tutorial, implementamos um **Snake Game** simples utilizando Go e Ebiten, 
 ### Licença
 
 Este projeto é licenciado sob a [MIT License](LICENSE).
-
----
-
-Esse é o conteúdo completo para o **README.md**. Ao publicá-lo no GitHub, ele explicará de forma clara as etapas do desenvolvimento e como rodar o jogo. Além disso, sugeri algumas melhorias para que outros desenvolvedores possam continuar aprimorando o projeto.
-
-**a.** Que tal criar uma seção no readme explicando como contribuir para o projeto?  
-**b.** Quer que eu adicione um exemplo de como implementar sons ao jogo?
