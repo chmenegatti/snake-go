@@ -15,35 +15,39 @@ import (
 const (
 	screenWidth   = 320
 	screenHeight  = 240
-	gridSize      = 10
+	gridSize      = 10 //tamanho do grid da cobra
 	snakeSpeed    = 5  // Controla a velocidade da cobra (maior valor = mais devagar)
 	placarHeight  = 20 // Altura reservada para o placar no topo
 	borderPadding = 10 // Largura da borda ao redor do campo de jogo
 )
 
 type Game struct {
-	snake      []image.Point
-	direction  image.Point
-	food       image.Point
-	score      int
-	gameOver   bool
-	frameCount int // Contador de frames para controlar a velocidade
+	snake      []image.Point // Cada segmento da cobra é um ponto
+	direction  image.Point   // Direção da cobra
+	food       image.Point   // Posição da comida
+	score      int           // Pontuação
+	gameOver   bool          // Flag de game over
+	frameCount int           // Contador de frames para controlar a velocidade
 }
 
+// Inicializa o jogo
+
 func (g *Game) init() {
-	g.snake = []image.Point{{X: screenWidth / 2, Y: screenHeight / 2}}
-	g.direction = image.Point{X: gridSize, Y: 0}
-	g.spawnFood()
-	g.score = 0
-	g.gameOver = false
-	g.frameCount = 0
+	g.snake = []image.Point{{X: screenWidth / 2, Y: screenHeight / 2}} // Inicia a cobra no centro da tela
+	g.direction = image.Point{X: gridSize, Y: 0}                       // Inicia a cobra indo para a direita
+	g.spawnFood()                                                      // Gera a comida
+	g.score = 0                                                        // Reseta a pontuação
+	g.gameOver = false                                                 // Reseta a flag de game over
+	g.frameCount = 0                                                   // Reseta o contador de frames
 }
 
 func (g *Game) spawnFood() {
-	rand.Seed(time.Now().UnixNano())
+	r := rand.New(rand.NewSource(time.Now().UnixNano())) // Gera um número aleatório
+
+	// Posição da comida aleatória dentro da área de jogo
 	g.food = image.Point{
-		X: rand.Intn((screenWidth-borderPadding*2)/gridSize)*gridSize + borderPadding,
-		Y: rand.Intn((screenHeight-placarHeight-borderPadding*2)/gridSize)*gridSize + placarHeight + borderPadding,
+		X: r.Intn((screenWidth-borderPadding*2)/gridSize)*gridSize + borderPadding,
+		Y: r.Intn((screenHeight-placarHeight-borderPadding*2)/gridSize)*gridSize + placarHeight + borderPadding,
 	}
 }
 
@@ -59,6 +63,7 @@ func (g *Game) Update() error {
 		return nil
 	}
 
+	// Verifica se o jogo acabou
 	if g.gameOver {
 		return nil
 	}
@@ -147,7 +152,7 @@ func (g *Game) Draw(screen *ebiten.Image) {
 }
 
 func (g *Game) Layout(outsideWidth, outsideHeight int) (int, int) {
-	return screenWidth, screenHeight
+	return screenWidth, screenHeight // Tamanho da tela
 }
 
 func main() {
