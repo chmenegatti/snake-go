@@ -32,8 +32,8 @@ Antes de começar, certifique-se de ter os seguintes itens instalados:
 1. Clone o repositório para sua máquina local:
 
    ```bash
-   git clone https://github.com/seu-usuario/snake-game-go-ebiten.git
-   cd snake-game-go-ebiten
+   git clone https://github.com/chmenegatti/snake-go.git
+   cd snake-go
    ```
 
 2. Instale a biblioteca **Ebiten**:
